@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 function PostCard({post}) {
-  console.log(style);
   return (
     <div className={style.container}>
       <div className={style.top}>
@@ -16,7 +15,7 @@ function PostCard({post}) {
       <div className={style.bottom}>
         <h1 className={style.title}>{post.title}</h1>
         <p className={style.desc}>{post.body}</p>
-      <Link href={`/blog/${post.id}`} className={style.link}>Read More</Link>
+      <Link href={`/blog/${post.slug}`} className={style.link}>Read More</Link>
       </div>
     </div>
   )

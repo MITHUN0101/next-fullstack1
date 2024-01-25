@@ -3,6 +3,19 @@ import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
 import { getPost } from "../../../../lib/data";
 import { Suspense } from "react";
+
+export const generateMetadata = async ({params})=>{
+  const { slug } = params;
+
+  const post = await getPost(slug);
+  //console.log(post.desc,"heee");
+  return {
+    title:post.title,
+    description:post.desc,
+  }
+}
+
+
 async function SinglePost({params,searchParams}) {
   const {slug} = params;
   //Fetch data through API
@@ -16,7 +29,7 @@ async function SinglePost({params,searchParams}) {
 
   //Fetch Data without an API
   const post =await getPost(slug);
-  console.log(post);
+  //console.log(post,"mith");
   return (
     <div className={style.container}>
       <div className={style.imgContainer}>
@@ -39,7 +52,7 @@ async function SinglePost({params,searchParams}) {
           />
           
           <Suspense fallback={<div>Loading...</div>}>
-              <PostUser userId={post.id}/>
+              <PostUser userId={post.userId}/>
           </Suspense>
           <div className={style.detailText}>
             <span className={style.detailTitle}>

@@ -15,14 +15,14 @@ async function PostUser({userId}){
 
     //Fetch data without an api
     const user = await getUser(userId);
-    console.log(userId);
+    console.log(userId,user,"hello");
     return (
         <div className={style.container}>
             <span className={style.title}>
                 Author
             </span>
             <span className={style.username}>
-                {user.name}
+                {user.username}
             </span>
         </div>
     )

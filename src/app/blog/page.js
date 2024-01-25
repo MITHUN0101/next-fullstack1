@@ -14,9 +14,15 @@ import { getPosts } from "../../../lib/data";
 
 //Fetch Data without An API
 
+export const metadata = {
+    title:"Blog Page",
+    description:"Blog Page description"
+}
+
+
 async function BlogPage() {
   const posts = await getPosts();
-
+  // console.log(posts);
   return (
     <div className={style.container}>
       {/* <div className={style.post}>
